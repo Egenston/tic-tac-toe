@@ -1,0 +1,176 @@
+/* Values by default start */
+*,
+*::before,
+*::after{
+    padding: 0;
+    margin: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+a{
+    text-decoration: none;
+}
+ul,
+ol,
+li{
+    list-style: none;
+}
+img{
+    vertical-align: top;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6{
+    font-weight: inherit;
+    font-size: inherit;
+}
+html,
+body{
+    height: 100%;
+    line-height: 1;
+    font-size: 16px;
+    color: rgb(37, 37, 37);
+    background-color: white;
+    font-family: 'Gluten', cursive;
+    overflow-x: hidden;
+}
+/* header*/
+header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 10px;
+}
+header h1{
+    font-size: 60px;
+}
+header h2{
+    position: relative;
+    bottom: 10px;
+    font-size: 18px;
+}
+header h2 a{
+    color: black;
+    transition: 0.2s;
+}
+header i{
+    font-size: 14px;
+}
+header h2 a:hover{
+    transform: scale(1.1);
+}
+
+/* gamemode options */
+#gamemode-options{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+    transition: 1s;
+}
+#gamemode-options.disabled{
+    left: -400px;
+}
+#gamemode-options h1{
+    text-align: center;
+    width: 350px;
+    font-size: 40px;
+}
+.gamemode-option, #start-game{
+    position: relative;
+    width: 250px;
+    height: 50px;
+    background: rgb(0, 174, 255);
+    color: white;
+    font-family: inherit;
+    font-size: 30px;
+    font-weight: 600;
+    border-radius: 30px;
+    transition: 0.3s;
+    overflow: hidden;
+    cursor: pointer;
+    z-index: 1;
+    box-shadow: -1px 1px rgb(255, 0, 200),
+                -2px 2px rgb(255, 0, 200),
+                -3px 3px rgb(255, 0, 200),
+                -4px 4px rgb(255, 0, 200);
+}
+.gamemode-option:hover, #start-game:hover{
+    transform: translate(-4px, 4px);
+    box-shadow: none;
+}
+.gamemode-option::before, #start-game::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 100%;
+    background-color: rgb(0, 134, 196);
+    opacity: 1;
+    z-index: -1;
+    transition: 0.3s;
+}
+.gamemode-option:hover::before, #start-game:hover::before{
+    width: 100%;
+    opacity: 1;
+}
+
+/* player names form */
+#player-names-form{
+    position: absolute;
+    top: 50%;
+    right: -500px;
+    transform: translate(50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    transition: 1s;
+    visibility: hidden;
+}
+#player-names-form.active{
+    right: 50%;
+    transition: 1s;
+}
+#player-names-form.disabled{
+    right: calc(100% + 400px);
+}
+#player-names-form label{
+    font-size: 30px;
+    padding-top: 20px;
+}
+#player-names-form input{
+    position: relative;
+    bottom: 10px;
+    width: 300px;
+    height: 40px;
+    font-size: 20px;
+    font-family: inherit;
+    padding-left: 10px;
+    border-radius: 20px;
+    outline: none;
+    border: 4px solid rgb(0, 174, 255);  
+}
+#start-game{
+    margin-top: 20px;
+}
+#back-button{
+    position: absolute;
+    top: -30px;
+    right: 0;
+    color: rgb(0, 174, 255);
+    font-size: 25px;
+}
+.fas.fa-arrow-left{
+    font-size: 18px;
+}

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Gluten:wght@200&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Gluten:wght@600&display=swap');
+    </style>
+    <script src="https://kit.fontawesome.com/f19b25fb2d.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <title>Tic Tac Toe</title>
+</head>
+<body>
+    <header>
+        <h1>Tic Tac Toe</h1>
+        <h2>by <a href="https://github.com/Egenston" target="_blank">Egenston<i class="fab fa-github"></i></a></h2>
+    </header>
+    <div id="gamemode-options" class="">
+        <h1>Choose gamemode</h1>
+        <button class="gamemode-option" id="computer-option">VS Computer</button>
+        <button class="gamemode-option" id="player-option">VS Player</button>
+    </div>
+    <div id="player-names-form" class="">
+        <a href="#" id="back-button"><i class="fas fa-arrow-left"></i> Back</a>
+        <label for="player1-name">Player1 name:</label>
+        <br>
+        <input type="text" placeholder="Enter Player1 name" id="player1-name" required>
+        <br>
+        <label for="player2-name">Player2 name:</label>
+        <br>
+        <input type="text" placeholder="Enter Player2 name" id="player2-name" required>
+        <br>
+        <button id="start-game">START</button>
+    </div>
+    
+
+    <script src="script.js"></script>
+</body>
+</html>
