@@ -317,3 +317,33 @@ header h2 a:hover{
 #ok-button{
     position: absolute;
 }
+@media (max-width: 450px){
+    header h1{
+        font-size: 44px;
+    }
+    header h2{
+        font-size: 16px;
+    }
+    header i{
+        font-size: 13px;
+    }
+    #gamemode-options h1{
+        width: 98vw;
+        font-size: 30px;
+    }
+    #player-names-form input{
+        width: 95vw;
+    }
+    #popup-message{
+        width: 90vw;
+    }
+    #popup-buttons button{
+        width: 120px;
+        height: 45px;
+        font-size: 26px;
+    }
+    .playfield{
+        width: 95vw;
+        height: 95vw;
+    }
+}
