@@ -9,6 +9,7 @@
         @import url('https://fonts.googleapis.com/css2?family=Gluten:wght@600&display=swap');
     </style>
     <script src="https://kit.fontawesome.com/f19b25fb2d.js" crossorigin="anonymous"></script>
+    <link rel="shortcut icon" href="https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Tic_tac_toe.svg/1152px-Tic_tac_toe.svg.png" type="image/x-icon">
     <link rel="stylesheet" href="style.css" type="text/css">
     <title>Tic Tac Toe</title>
 </head>
@@ -38,21 +39,27 @@
         <div id="popup-message" class="">
             <i class="fas fa-times" id="close-popup"></i>
             <p id="popup-text"></p>
+            <div id="popup-buttons">
+                <button id="ok-button">OK</button>
+                <button id="home-button">Home</button>
+                <button id="restart-button">Restart</button>
+            </div>
         </div>
     </div>
     <div id="game-screen" class="">
         <a href="#" id="back-button"><i class="fas fa-arrow-left"></i> Back</a>
-        <h1 id="current-turn">sgsdg</h1>
+        <a href="#" id="restart-button-top"><i class="fas fa-redo"></i> Restart</a>
+        <h1 id="current-turn"></h1>
         <div class="playfield">
-            <div class="playfield-cell"></div>
-            <div class="playfield-cell"></div>
-            <div class="playfield-cell"></div>
-            <div class="playfield-cell"></div>
-            <div class="playfield-cell"></div>
-            <div class="playfield-cell"></div>
-            <div class="playfield-cell"></div>
-            <div class="playfield-cell"></div>
-            <div class="playfield-cell"></div>
+            <div class="playfield-cell"><i class=""></i></div>
+            <div class="playfield-cell"><i class=""></i></div>
+            <div class="playfield-cell"><i class=""></i></div>
+            <div class="playfield-cell"><i class=""></i></div>
+            <div class="playfield-cell"><i class=""></i></div>
+            <div class="playfield-cell"><i class=""></i></div>
+            <div class="playfield-cell"><i class=""></i></div>
+            <div class="playfield-cell"><i class=""></i></div>
+            <div class="playfield-cell"><i class=""></i></div>
         </div>
     </div>
 
