@@ -2,6 +2,7 @@ let gamemode = "";
 let player1 = "";
 let player2 = "";
 let currentTurn = "";
+let turnsAmount = 0;
 let winnerFound = false;
 
 //screen1
@@ -82,6 +83,7 @@ backButtons.forEach(button => {
             okButton.addEventListener("click", () => {
                 disableBlur();
                 activateScreen(2);
+                turnsAmount = 0;
                 setTimeout(() => {
                     clearCells();
                     popupText.textContent = "";
@@ -104,6 +106,7 @@ closeWindowButton.addEventListener('click', () => {
 //"restart" button was pressed
 restartButton.addEventListener('click', () => {
     winnerFound = false;
+    turnsAmount = 0;
     chooseFirstTurn();
     setCells();
     gameScreen.children[0].style.visibility = "visible";
@@ -112,6 +115,7 @@ restartButton.addEventListener('click', () => {
 //"restart" popup button was pressed
 restartPopupButton.addEventListener('click', () => {
     winnerFound = false;
+    turnsAmount = 0;
     chooseFirstTurn();
     setCells();
     disableBlur();
@@ -124,6 +128,7 @@ restartPopupButton.addEventListener('click', () => {
 //"home" popup button was pressed
 homeButton.addEventListener("click", () => {
     winnerFound = false;
+    turnsAmount = 0;
     disableBlur();
     disablePopupButtons();
     homeButton.style.visibility = "hidden";
@@ -224,11 +229,13 @@ function setCells() {
         cell.addEventListener("click", () => {
             if (currentTurn == player1) {
                 cell.children[0].className = "fas fa-times";
+                turnsAmount++;
                 checkSituation();
                 if(!winnerFound) currentTurn = player2;
             }
             else if (currentTurn == player2) {
                 cell.children[0].className = "far fa-circle";
+                turnsAmount++;
                 checkSituation();
                 if(!winnerFound) currentTurn = player1;
             }
@@ -302,6 +309,16 @@ function checkSituation() {
             }
         }
     }
+    //tie
+    if (turnsAmount == 9 && !winnerFound) {
+        turnsAmount = 0;
+        gameScreen.children[0].style.visibility = "hidden";
+        restartButton.style.visibility = "visible";
+        homeButton.style.visibility = "visible";
+        restartPopupButton.style.visibility = "visible";
+        activatePopupButtons();
+        popupMessage(`It's a tie`);
+    }
 }
 
 function gameResult(winnerName) {
@@ -311,67 +328,5 @@ function gameResult(winnerName) {
     restartPopupButton.style.visibility = "visible";
     activatePopupButtons();
     popupMessage(`${winnerName} is the winner!`);
-
-    // gameScreen.children[0].style.visibility = "hidden";
-    // restartButton.style.visibility = "visible";
-    // popupMessage(`${winnerName} is the winner!`);
-    // popupButtons.style.marginTop = "10px";
-    // popupButtons.style.padding = "10px";
-    // let homeButton = document.createElement('button');
-    // homeButton.setAttribute('id', "home-button");
-    // homeButton.textContent = "Home";
-    // popupButtons.appendChild(homeButton);
-    // homeButton = document.getElementById('home-button');
-    // let newGameButton = document.createElement('button');
-    // newGameButton.setAttribute('id', "new-game-button");
-    // newGameButton.textContent = "Restart";
-    // popupButtons.appendChild(newGameButton);
-    // newGameButton = document.getElementById('new-game-button');
-    // homeButton.addEventListener('click', () => {
-    //     blurWindow.classList.toggle('active');
-    //     popupWindow.classList.toggle('active');
-    //     gameScreen.className = "";
-    //     gameScreen.style.visibility = "hidden";
-    //     playerNamesForm.className = "";
-    //     gamemodeOptions.style.visibility = "visible";
-    //     gamemodeOptions.className = "";
-    //     setTimeout(() => {
-    //         for (let index = 0; index < playfield.children.length; index++) {
-    //             playfield.children[index].children[0].className = "";
-    //         }
-    //         gameScreen.children[0].style.visibility = "visible";
-    //         gameScreen.children[1].style.visibility = "hidden";
-    //         chooseFirstTurn();
-    //         setCells();
-    //         popupText.textContent = "";
-    //         popupButtons.innerHTML = "";
-    //         popupButtons.style.marginTop = "0";
-    //         popupButtons.style.padding = "0";
-    //         popupButtons.removeChild(homeButton);
-    //     }, 1000);
-    // })
-    // newGameButton.addEventListener('click', () => {
-    //     for (let index = 0; index < playfield.children.length; index++) {
-    //         playfield.children[index].children[0].className = "";
-    //     }
-    //     gameScreen.children[0].style.visibility = "visible";
-    //     gameScreen.children[1].style.visibility = "hidden";
-    //     chooseFirstTurn();
-    //     setCells(); 
-    //     blurWindow.classList.toggle('active');
-    //     popupWindow.classList.toggle('active');
-    //     setTimeout(() => {
-    //         popupText.textContent = "";
-    //         popupButtons.innerHTML = "";
-    //     }, 400);
-    // });
-    // restartButton.addEventListener('click', () =>{
-    //     gameScreen.children[0].style.visibility = "visible";
-    //     gameScreen.children[1].style.visibility = "hidden";
-    //     for (let index = 0; index < playfield.children.length; index++) {
-    //         playfield.children[index].children[0].className = "";
-    //     }
-    //     chooseFirstTurn();
-    //     setCells();
-    // });
+    turnsAmount = 0;
 }
