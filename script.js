@@ -8,6 +8,7 @@ let winnerFound = false;
 //screen1
 const gamemodeOptions = document.getElementById('gamemode-options');
 const playersGamemode = document.getElementById('player-option');
+const computerGamemode = document.getElementById('computer-option');
 
 //screen2
 const playerNamesForm = document.getElementById('player-names-form');
@@ -33,7 +34,10 @@ const homeButton = document.getElementById('home-button');
 const restartPopupButton = document.getElementById('restart-button');
 const closeWindowButton = document.querySelector('#close-popup');
 
-
+//"computer" gamemode was chosen
+computerGamemode.addEventListener('click', () => {
+    popupMessage("This gamemode isn't available yet");
+})
 //"players" gamemode was chosen
 playersGamemode.addEventListener("click", () => {
     gamemode = "players";
